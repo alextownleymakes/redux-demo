@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+#main {
+  width: 50%;
+  margin: 100px auto;
+}
+
 .generic-button {
   background-color: #999;
   border: 1px solid #666;
@@ -40,9 +45,11 @@ code {
   border-radius: 5px;
   color: #eee;
   min-height: 26px;
-  min-width: 600px;
+  width: 100%;
+  min-width: 100%;
   text-align: center;
   margin-bottom: 30px;
+  word-wrap: break-word
 }
 
 .generic-input {

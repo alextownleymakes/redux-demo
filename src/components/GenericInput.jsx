@@ -1,19 +1,6 @@
 import React from 'react';
-import GenericButton from './GenericButton';
-import { useDispatch } from 'react-redux';
-import { UPDATE } from '../state/actions/actionTypes';
 
-const GenericInput = () => {
-
-    const dispatch = useDispatch();
-
-    const [value, setValue] = React.useState('');
-
-    const submitValue = () => {
-        console.log('Value submitted: ', value);
-        dispatch({ type: UPDATE, payload: value });
-        setValue('');
-    }
+const GenericInput = ({value, setValue}) => { 
 
     return (
         <>
@@ -25,7 +12,6 @@ const GenericInput = () => {
                 className='generic-input'
             />
             <br/>
-            <GenericButton onSubmit={submitValue} display="SUBMIT" />
         </>
     );
 };
