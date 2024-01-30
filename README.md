@@ -67,6 +67,9 @@ the basic-store-implementation branch has already completed those steps;
     then you can define a new useSelector in main.jsx to retrieve that value, or you can
     have one property as an object that contains both values and use only one useSelector.
 
+    note: you can use FormatDate in FormatDate.js to format the date you have created, in the reducer
+    or in the component.
+
 6. in main.jsx, pass the properties from state that you have grabbed with the selector(s)
     and pass them into the components in the jsx return. you should now be able to use the 
     input and buttons to set and to reset the values in the store and see those rendered on the page!
