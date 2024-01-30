@@ -1,35 +1,52 @@
 import React from 'react';
 import GenericInput from './GenericInput';
-import GenericDisplay from './GenericDisplay';
 import GenericButton from './GenericButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { UPDATE, RESET } from '../state/actions/actionTypes';
-import { formatDate } from './utils/FormatDate';
+import { todos } from '../state/actions/actionTypes';
+import Todo from './Todo';
 
 const Main = () => {
 
     const [value, setValue] = React.useState('');
+    const todoList = useSelector(state => state.todos);
 
-    const mainDisplay = useSelector(state => state.mainDisplay);
     const dispatch = useDispatch();
 
-    const submitValue = () => {
+    const createTodo = () => {
         console.log('Value submitted: ', value);
-        dispatch({ type: UPDATE, payload: value });
+        dispatch({ type: todos.create_todo, payload: value });
         setValue('');
     }
 
-    const resetValue = () => {
-        dispatch({ type: RESET });
+    const updateTodo = (id) => {
+        console.log('Value submitted: ', value);
+        dispatch({ type: todos.update_todo, payload: { id, value } });
+        setValue('');
     }
+
+    const completeTodo = (id) => {
+        dispatch({ type: todos.complete_todo, payload: id });
+    }
+
+    const deleteTodo = (id) => {
+        dispatch({ type: todos.delete_todo, payload: id });
+    }
+
+    const todoFunctions = {
+        updateTodo,
+        completeTodo,
+        deleteTodo
+    }
+    
+    const displayTodos = todoList.map((todo, index) => {
+        return <Todo key={index} todo={todo} todoFunctions={todoFunctions} />;
+    });
 
     return (
         <div id='main'>
             <GenericInput value={value} setValue={setValue}/>
-            <GenericButton onSubmit={submitValue} display="SUBMIT" />
-            <GenericButton onSubmit={resetValue} display="RESET" />
-            <GenericDisplay label="VALUE IN STORE" value={mainDisplay.value} />
-            <GenericDisplay label="LAST UPDATED" value={mainDisplay.updateTime && formatDate(mainDisplay.updateTime)} />
+            <GenericButton onSubmit={createTodo} display="NEW TODO" />
+            {todoList.length > 0 && displayTodos}
         </div>
     );
 };

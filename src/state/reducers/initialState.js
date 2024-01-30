@@ -1,8 +1,13 @@
 const initialState = {
-    mainDisplay: {
-        value: "",
-        updateTime: null
-    }
+    todos: [
+        {
+            id: 0,
+            title: "Learn Redux",
+            completed: false,
+            updateDate: new Date(),
+        }
+
+    ]
 }
 
 export default initialState;
