@@ -5,7 +5,7 @@ it is not functional as is and needs some updates to be functional. follow the s
 
 the first-steps branch contains example code in store.js, rootReducer.js, initialState.js, and actionTypes.js.
     replace example code to wire the store up, then switch back to main and try it from scratch!
-    
+
 the basic-store-implementation branch has already completed those steps;
     try the challenge at the end to build a to-do app!
 
@@ -76,7 +76,7 @@ the basic-store-implementation branch has already completed those steps;
 1. update initialvalues to contain an array of todos, think about what data each todo will need to be updatable/deletable
 2. update the reducer to create, update, or delete todos
 3. update the UI to display todos below the text area instead of a single display
-4. update the UI to accomodate for update and delete
+4. update the UI to accomodate for update and delete functionality
 
 have fun :)
 
