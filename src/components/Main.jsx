@@ -3,24 +3,24 @@ import GenericInput from './GenericInput';
 import GenericDisplay from './GenericDisplay';
 import GenericButton from './GenericButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { UPDATE, RESET } from '../state/actions/actionTypes';
 import { formatDate } from './utils/FormatDate';
+//import the action(s) you need from the actions folder below this line
 
 const Main = () => {
 
     const [value, setValue] = React.useState('');
 
-    const mainDisplay = useSelector(state => state.mainDisplay);
+    //useDispatch is a hook that allows us to dispatch actions
     const dispatch = useDispatch();
 
     const submitValue = () => {
         console.log('Value submitted: ', value);
-        dispatch({ type: UPDATE, payload: value });
         setValue('');
+        //dispatch for setting the value in the store below this line        
     }
 
     const resetValue = () => {
-        dispatch({ type: RESET });
+        //dispatch for resetting the value in the store below this line
     }
 
     return (
@@ -28,8 +28,8 @@ const Main = () => {
             <GenericInput value={value} setValue={setValue}/>
             <GenericButton onSubmit={submitValue} display="SUBMIT" />
             <GenericButton onSubmit={resetValue} display="RESET" />
-            <GenericDisplay label="VALUE IN STORE" value={mainDisplay.value} />
-            <GenericDisplay label="LAST UPDATED" value={mainDisplay.updateTime && formatDate(mainDisplay.updateTime)} />
+            <GenericDisplay label="VALUE IN STORE" value={""} />
+            <GenericDisplay label="LAST UPDATED" value={""} />
         </div>
     );
 };
