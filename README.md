@@ -11,8 +11,8 @@ the basic-store-implementation branch has already completed those steps;
 
 # Simple React/Redux app that:
 
-1. accepts an input with submit button
-2. fires a dispatch to the store with that value with useDispatch
+1. accepts an input with submit and reset button
+2. submit fires a dispatch to the store with that value with useDispatch
 3. reducer stores the value as well as updates the timestamp of the submitted value
 4. main component retrieves data from redux with useSelector
 5. values rendered on page
@@ -84,4 +84,3 @@ the basic-store-implementation branch has already completed those steps;
 have fun :)
 
 -alex
-
