@@ -53,7 +53,6 @@ code {
 }
 
 .generic-input {
-  background-color: #eee;
   border: 1px solid #999;
   padding: 10px;
   border-radius: 5px;
@@ -65,20 +64,49 @@ code {
 }
 
 .todo-item {
-  display: flex;
-  align-items: center;
+  display: block;
+  min-width: 50%;
+  max-width: 50%;
+  margin: 30px auto;
   padding: 8px;
   border-bottom: 1px solid #ccc;
+  background-color: #f6f6f6;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  text-align: left;
+  position: relative;
 }
 
 .todo-content {
-  flex-grow: 1;
-  display: flex;
+  position: relative;
+  left: 6px;
   justify-content: space-between;
-  align-items: center;
+  min-height: 200px;
+  width: auto;
+  background-color: transparent;
+  border: 1px solid #408dad;
+  border-radius: 18px;
+  padding: 4px;
+  margin-top: 16px;
+}
+
+.tc-em {
+  border: 1px solid #7ad7ff;
+  background-color: #f9f9f9;
+
 }
 
 .timestamp {
+  position: relative;
+  top: 2px;
+  left: 6px;
+  display: inline;
+  margin-right: auto;
+  min-width: 30px;
   font-size: 12px;
-  color: #888;
+  color: #444;
+  font-weight: 600;
+  background-color: #ccc;
+  padding: 10px;
+  border-radius: 300px;
 }
