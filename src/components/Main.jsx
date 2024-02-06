@@ -1,22 +1,24 @@
 import React from 'react';
-import GenericInput from './GenericInput';
 import GenericDisplay from './GenericDisplay';
 import GenericButton from './GenericButton';
-import { useSelector, useDispatch } from 'react-redux';
-import { formatDate } from './utils/FormatDate';
-//import the action(s) you need from the actions folder below this line
+import { useDispatch, useSelector } from 'react-redux';
+import { actionTypes } from '../state/actions/actionTypes';
+
+const { catFacts } = actionTypes;
 
 const Main = () => {
 
     const [value, setValue] = React.useState('');
+    const catFact  = useSelector(state => state.catFacts);
 
     //useDispatch is a hook that allows us to dispatch actions
     const dispatch = useDispatch();
 
-    const submitValue = () => {
+    const getCatFact = () => {
         console.log('Value submitted: ', value);
         setValue('');
-        //dispatch for setting the value in the store below this line        
+        //dispatch for setting the value in the store below this line  
+        dispatch({type: catFacts.request})      
     }
 
     const resetValue = () => {
@@ -25,11 +27,8 @@ const Main = () => {
 
     return (
         <div id='main'>
-            <GenericInput value={value} setValue={setValue}/>
-            <GenericButton onSubmit={submitValue} display="SUBMIT" />
-            <GenericButton onSubmit={resetValue} display="RESET" />
-            <GenericDisplay label="VALUE IN STORE" value={""} />
-            <GenericDisplay label="LAST UPDATED" value={""} />
+            <GenericButton onSubmit={getCatFact} display="GET CAT FACT" />
+            <GenericDisplay label="A CAT FACT" value={catFact} />
         </div>
     );
 };
